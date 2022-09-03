@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,63 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// landing page
+// Route::get('/', function () {
+//     return view('layouts.app');
+// })->name('landing-page');
+
+// auth routes
+Route::get('/' , [AuthController::class, 'loginPage'])->name('landing-page');
+Route::get('login' , [AuthController::class, 'loginPage'])->name('login');
+Route::post('login' , [AuthController::class, 'login'])->name('login-submit');
+
+// warden routes
+Route::group(['prefix' => 'warden', 'as' => 'warden.'], function () {
+    // auth routes
+    Route::post('logout' , [AuthController::class, 'logout'])->name('logout');
+
+    // protected routes
+    Route::group(['middleware' => ['auth','warden']], function () {
+        // home route
+        Route::get('home', [HomeController::class, 'index'])->name('home');
+
+        // profile routes
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/{user}/edit', [ProfileController::class, 'update'])->name('profile.update');
+
+        // student related routes
+        Route::resource('students', StudentController::class);
+    });
+});
+
+// sub-warden routes
+Route::group(['prefix' => 'sub-warden', 'as' => 'sub-warden.'], function () {
+    // auth routes
+    Route::post('logout' , [AuthController::class, 'logout'])->name('logout');
+
+    // protected routes
+    Route::group(['middleware' => ['auth','sub_warden']], function () {
+        // home route
+        Route::get('home', [HomeController::class, 'index'])->name('home');
+
+        // profile routes
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/{user}/edit', [ProfileController::class, 'update'])->name('profile.update');
+    });
+});
+
+// student routes
+Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
+    // auth routes
+    Route::post('logout' , [AuthController::class, 'logout'])->name('logout');
+
+    // protected routes
+    Route::group(['middleware' => ['auth','student']], function () {
+        // home route
+        Route::get('home', [HomeController::class, 'index'])->name('home');
+
+        // profile routes
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/{user}/edit', [ProfileController::class, 'update'])->name('profile.update');
+    });
 });
