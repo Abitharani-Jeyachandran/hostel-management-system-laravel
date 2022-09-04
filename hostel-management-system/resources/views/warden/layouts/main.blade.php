@@ -105,40 +105,6 @@
             </li> --}}
 
 
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Project
-            </div>
-
-            <!-- Nav Item - Projects -->
-            {{-- <li class="nav-item {{ (request()->is('projects*')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{route('projects.index')}}">
-                    <i class="fas fa-project-diagram"></i>
-                    <span>Projects</span></a>
-            </li> --}}
-
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Project Tasks</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        {{-- <a class="collapse-item" href="{{route('new.tasks')}}">New Tasks</a>
-                        <a class="collapse-item" href="{{route('started.tasks')}}">Started Tasks</a>
-                        <a class="collapse-item" href="{{route('finished.tasks')}}">Finished Tasks</a> --}}
-                    </div>
-                </div>
-            </li>
-
-
-
             <!-- Divider -->
             {{-- <hr class="sidebar-divider"> --}}
 
