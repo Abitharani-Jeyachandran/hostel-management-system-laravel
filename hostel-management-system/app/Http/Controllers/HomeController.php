@@ -17,5 +17,6 @@ class HomeController extends Controller
         if(Auth::user()->is_user == 'student'){
             return view('student.pages.home');
         }
+        
     }
 }

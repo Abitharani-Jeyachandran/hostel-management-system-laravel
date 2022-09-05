@@ -76,8 +76,8 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        {{-- <a class="collapse-item" href="{{route('managers.index')}}">Create Managers</a>
-                        <a class="collapse-item" href="{{route('departments.index')}}">Create Departments</a> --}}
+                         <a class="collapse-item" href="{{route('student.appeal')}}">Appeal to warden</a>
+                         {{--<a class="collapse-item" href="{{route('departments.index')}}">Create Departments</a> --}}
                     </div>
                 </div>
             </li>

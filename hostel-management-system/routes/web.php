@@ -71,6 +71,12 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::group(['middleware' => ['auth','student']], function () {
         // home route
         Route::get('home', [HomeController::class, 'index'])->name('home');
+        // Route::get('appeal',function(){return view('student_appeal');})->name('appeal');
+
+
+        Route::get('appeal', function () {return view('student.student_appeal');})->name('appeal');
+        Route::put('insert_appeal', function() {return view('student.insert_appeal');})->name('insert_appeal');
+        Route::get('view_hostel', function() {return view('student.view_hostel');})->name('view_hostel');
 
         // profile routes
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -78,10 +84,9 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     });
 });
 
-//Appeal for crud
 //Hirunika Wijesinghe (UWU/CST/18/032 function)
 Route::get('/appeal', function() {
-    return view('student_appeal');
+    return view('student.student_appeal');
 });
 
 Route::get('/insert_appeal', function() {

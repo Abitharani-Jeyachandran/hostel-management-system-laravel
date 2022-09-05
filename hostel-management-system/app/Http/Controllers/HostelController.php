@@ -82,4 +82,6 @@ class HostelController extends Controller
     {
         //
     }
+
+    
 }
