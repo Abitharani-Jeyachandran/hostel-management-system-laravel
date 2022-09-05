@@ -71,9 +71,31 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     Route::group(['middleware' => ['auth','student']], function () {
         // home route
         Route::get('home', [HomeController::class, 'index'])->name('home');
+        // Route::get('appeal',function(){return view('student_appeal');})->name('appeal');
+
+
+        Route::get('appeal', function () {return view('student.student_appeal');})->name('appeal');
+        Route::put('insert_appeal', function() {return view('student.insert_appeal');})->name('insert_appeal');
+        Route::get('view_hostel', function() {return view('student.view_hostel');})->name('view_hostel');
 
         // profile routes
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
         Route::put('/profile/{user}/edit', [ProfileController::class, 'update'])->name('profile.update');
     });
+});
+
+Route::get('/appeal', function() {
+    return view('student.student_appeal');
+});
+
+Route::get('/insert_appeal', function() {
+    return view('insert_appeal');
+});
+
+//AView Assigned hostel
+//Jayani Hansani (UWU/CST/18/042 function)
+
+
+Route::get('/view_hostel', function() {
+    return view('view_hostel');
 });
