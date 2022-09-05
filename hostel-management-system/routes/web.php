@@ -77,3 +77,21 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
         Route::put('/profile/{user}/edit', [ProfileController::class, 'update'])->name('profile.update');
     });
 });
+
+//Appeal for crud
+//Hirunika Wijesinghe (UWU/CST/18/032 function)
+Route::get('/appeal', function() {
+    return view('student_appeal');
+});
+
+Route::get('/insert_appeal', function() {
+    return view('insert_appeal');
+});
+
+//AView Assigned hostel
+//Jayani Hansani (UWU/CST/18/042 function)
+
+
+Route::get('/view_hostel', function() {
+    return view('view_hostel');
+});
