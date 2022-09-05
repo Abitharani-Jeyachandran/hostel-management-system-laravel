@@ -13,6 +13,23 @@ class navigateTest extends TestCase
         $response->assertStatus(200);
     }
 
+    public function test_apeal_form()
+    {
+        $response =$this->get('/appeal');
+        $response->assertStatus(200);
+    }
+
+    public function test_insert_appeal()
+    {
+        $response =$this->get('/insert_appeal');
+        $response->assertStatus(200);
+    }
+
+    public function profiles()
+    {
+        $response =$this->get('/profile');
+        $response->assertStatus(200);
+    }
     
     // public function test_user_duplication()
     // {
