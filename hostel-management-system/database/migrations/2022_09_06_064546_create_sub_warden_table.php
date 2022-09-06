@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hostels', function (Blueprint $table) {
+        Schema::create('sub_warden', function (Blueprint $table) {
             $table->id();
+            $table->string('subwarden_id')->unique();
             $table->string('name');
+            $table->string('email');
+            $table->string('hostel_id');
             $table->timestamp('failed_at')->useCurrent();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hostels');
+        Schema::dropIfExists('sub_warden');
     }
 };

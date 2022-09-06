@@ -130,6 +130,55 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `sub_warden`
+--
+
+DROP TABLE IF EXISTS `sub_warden`;
+CREATE TABLE IF NOT EXISTS `sub_warden` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subwarden_id` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `hostel_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sub_warden`
+--
+
+INSERT INTO `sub_warden` (`id`, `subwarden_id`, `name`, `email`, `hostel_id`) VALUES
+(1, 'sub01', 'dammika', 'dammika@gmail.com', 1),
+(2, 'sub02', 'viran', 'viran@gmail.com', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `warden`
+--
+
+DROP TABLE IF EXISTS `warden`;
+CREATE TABLE IF NOT EXISTS `warden` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `warden_id` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `hostel_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `warden`
+--
+
+INSERT INTO `warden` (`id`, `warden_id`, `name`, `email`, `hostel_id`) VALUES
+(1, 'wa01', 'soisa', 'soisa@gmail.com', 1),
+(2, 'wa02', 'yasiru', 'yasiru@gmail.com', 2);
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 

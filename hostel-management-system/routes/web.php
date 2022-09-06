@@ -95,3 +95,7 @@ Route::get('/insert_appeal', function() {
 Route::get('/view_hostel', function() {
     return view('view_hostel');
 });
+
+
+Route::get('/list',[HostelList::class,'warden']);
+Route::get('/list_sub',[HostelList::class,'subwarden']);
