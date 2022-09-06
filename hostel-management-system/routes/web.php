@@ -100,3 +100,9 @@ Route::get('/insert_appeal', function() {
 Route::get('/view_hostel', function() {
     return view('view_hostel');
 });
+
+
+// thanushan
+Route::get('/student-hostel', [StudentHostelDetailsController::class,'studentHostels'])->name('students.hostel');
+Route::post('/student-hostel-add', [StudentHostelDetailsController::class,'studentHostelsAdd'])->name('students.hostelAdd');
+Route::post('/student-hostel-update', [StudentHostelDetailsController::class,'studentHostelsUpdate'])->name('students.hostelUpdate');
