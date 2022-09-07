@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('hostels', function (Blueprint $table) {
             $table->id();
+            $table->string('hostel_name');
+            $table->integer('no_of_rooms')->default(0);
+            $table->integer('no_of_students')->default(2);            
             $table->timestamps();
         });
     }

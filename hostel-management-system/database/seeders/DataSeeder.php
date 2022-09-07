@@ -34,5 +34,12 @@ class DataSeeder extends Seeder
             'password' => bcrypt('12345678'),
             'is_user' => 'sub_warden'
         ]);
+
+        DB::table('hostels')->insert([
+            ['hostel_name' => "Hostel 1"],
+            ['hostel_name' => "Hostel 2"],
+            ['hostel_name' => "Hostel 3"]
+
+        ]);
     }
 }

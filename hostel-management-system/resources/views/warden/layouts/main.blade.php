@@ -21,6 +21,8 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <!-- Custom styles for this page -->
     <link href="{{ asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
         .page-loader {
             position: fixed;
@@ -83,13 +85,11 @@
                 <div id="collapseHostels" class="collapse" aria-labelledby="headingHostels"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        {{-- <a class="collapse-item" href="{{route('managers.index')}}">Create Managers</a>
-                        <a class="collapse-item" href="{{route('departments.index')}}">Create Departments</a> --}}
+                         <a class="collapse-item" href="{{route('warden.appeal_list')}}">Appeal</a>
+                         <a class="collapse-item" href="{{route('warden.hostel_detail')}}">Hostel Data</a>
                     </div>
                 </div>
             </li>
-
-
             <!-- Nav Item - Users -->
             {{-- <li class="nav-item {{ (request()->is('users*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('users.index')}}">
@@ -434,5 +434,6 @@
     </script>
 
     @stack('scripts')
+
 </body>
 </html>
