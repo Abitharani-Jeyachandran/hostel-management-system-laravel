@@ -96,6 +96,7 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function () {
     });
 });
 
+//Hirunika Wijesinghe (UWU/CST/18/032 function)
 Route::get('/appeal', function() {
     return view('student.student_appeal');
 });
