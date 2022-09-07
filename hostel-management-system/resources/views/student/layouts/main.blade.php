@@ -55,7 +55,6 @@
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('student.home')}}">
                 <div class="sidebar-brand-text mx-3">H M S</div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
@@ -77,7 +76,7 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                          <a class="collapse-item" href="{{route('student.appeal')}}">Appeal to warden</a>
-                         {{--<a class="collapse-item" href="{{route('departments.index')}}">Create Departments</a> --}}
+                         <a class="collapse-item" href="">hostel</a>
                     </div>
                 </div>
             </li>

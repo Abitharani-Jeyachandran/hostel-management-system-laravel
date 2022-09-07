@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AppealController;
+use App\Http\Controllers\HostelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,16 @@ Route::group(['prefix' => 'warden', 'as' => 'warden.'], function () {
     Route::group(['middleware' => ['auth','warden']], function () {
         // home route
         Route::get('home', [HomeController::class, 'index'])->name('home');
+        // Route::get('appeal_list', [HomeController::class, 'appeal_list'])->name('appeal_list');
+
+        //Appeal roue
+        Route::get('appeal_list', function () {return view('warden.pages.appeal_list');})->name('appeal_list');
+        Route::get('appeal_list',[AppealController::class, 'show']) ->name('appeal_list');
+
+        //hostel
+        Route::get('hostel_detail', function () {return view('warden.pages.hostel_detail');})->name('hostel_detail');
+        Route::get('hostel_detail',[HostelController::class, 'show']) ->name('hostel_detail');
+
 
         // profile routes
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
@@ -99,3 +111,17 @@ Route::get('/insert_appeal', function() {
 Route::get('/view_hostel', function() {
     return view('view_hostel');
 });
+
+
+
+Route::get('/approved/{id}', [AppealController::class, 'approved']);
+Route::get('/reject/{id}', [AppealController::class, 'reject']);
+Route::resource('hostel', HostelController::class);
+Route::post('/edithostel/{name}/{total}/', [HostelController::class, 'editHostel']);
+
+
+// thanushan
+Route::get('/student-hostel', [StudentHostelDetailsController::class,'studentHostels'])->name('students.hostel');
+Route::post('/student-hostel-add', [StudentHostelDetailsController::class,'studentHostelsAdd'])->name('students.hostelAdd');
+Route::post('/student-hostel-update', [StudentHostelDetailsController::class,'studentHostelsUpdate'])->name('students.hostelUpdate');
+

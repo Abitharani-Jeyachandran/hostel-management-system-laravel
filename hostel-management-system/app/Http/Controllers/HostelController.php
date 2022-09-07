@@ -15,6 +15,7 @@ class HostelController extends Controller
     public function index()
     {
         //
+        return view('warden.pages.hostel_detail');
     }
 
     /**
@@ -36,6 +37,20 @@ class HostelController extends Controller
     public function store(Request $request)
     {
         //
+        $hos = new Hostel;
+        $data=Hostel::find($request->input('hostelName'));
+        $data->no_of_rooms=$request->input('totalRoom');
+        $data->save();
+        return redirect()->back();
+    }
+    public function edit(Request $request)
+    {
+        //
+        $hos = new Hostel;
+        $data=Hostel::find($request->input('hostelName'));
+        $data->no_of_rooms=$request->input('no_of_rooms');
+        $data->save();
+        return redirect()->route('hostel.index');
     }
 
     /**
@@ -44,9 +59,11 @@ class HostelController extends Controller
      * @param  \App\Models\Hostel  $hostel
      * @return \Illuminate\Http\Response
      */
-    public function show(Hostel $hostel)
+    
+    function show()
     {
-        //
+        $data=Hostel::all();
+        return view('warden.pages.hostel_detail',['hostel'=>$data]);
     }
 
     /**
@@ -55,10 +72,17 @@ class HostelController extends Controller
      * @param  \App\Models\Hostel  $hostel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Hostel $hostel)
+ 
+
+    public function editHostel($name,$total)
     {
         //
+        $data=Hostel::find($name);
+        $data->no_of_rooms=5;
+        $data->save();
+        return redirect()->back();        
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -70,6 +94,10 @@ class HostelController extends Controller
     public function update(Request $request, Hostel $hostel)
     {
         //
+        $hos = new Hostel;
+        $hos->no_of_rooms = $request->input('no_of_rooms');
+        $hos->save();
+        return redirect('warden/hostel_detail')->wih('succes', 'Data Saved');
     }
 
     /**
